@@ -1,0 +1,45 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Canvas (0.1.2)
+  - FLKAutoLayout (0.2.1)
+  - ORStackView (2.0.0):
+    - FLKAutoLayout (~> 0.1)
+  - SOCKit (1.1)
+  - TPKeyboardAvoiding (1.2.11)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.5)
+  - Canvas
+  - ORStackView (~> 2.0)
+  - SOCKit (~> 1.1)
+  - TPKeyboardAvoiding
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  FLKAutoLayout: 9db6b30c2008d230da608e62c607b11c23b942e6
+  ORStackView: 5df6b1b990b0648d8ef6f69f89361ea8648e8f64
+  SOCKit: c7376ac262bea9115b8f749358f762522a47d392
+  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
+
+COCOAPODS: 0.39.0
