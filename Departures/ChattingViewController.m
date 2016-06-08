@@ -21,10 +21,18 @@
 //    MessageMoudel *messageMoudel = [[MessageMoudel alloc]init];
 //    self.tableView.backgroundColor = [UIColor grayColor];
     
-    UIImageView *backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Background"]];
-    [self.tableView setBackgroundView:backgroundView];
+//    UIImageView *backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Background"]];
+//    [self.tableView setBackgroundView:backgroundView];
+   [ self.backgroundView setImage:[UIImage imageNamed:@"Background"]];
+    
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.titleView.backgroundColor = [UIColor clearColor];
+//    self.titleLabel.font = [UIFont fontWithName:@"System" size:;]
+    self.titleLabel.textColor = [UIColor whiteColor];
     
 }
 
