@@ -15,6 +15,10 @@
 
 @implementation ChattingViewController
 
+@synthesize contentOffSetY;
+@synthesize oldContentOffSetY;
+@synthesize newContentOffSetY;
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.tableView.allowsSelection = NO;//更改为cell不可选
@@ -34,8 +38,83 @@
 //    self.titleLabel.font = [UIFont fontWithName:@"System" size:;]
     self.titleLabel.textColor = [UIColor whiteColor];
     
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+}
+//
+
+-(void)keyboardDidChangeFrame:(NSNotification *)noti{
+    NSLog(@"----------%@",noti.userInfo);
+//    self.tableView.bounds.size.height -= 216;
+//    
+    CGRect frame = [ noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue ];
+//
+//    self.tableView.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - 216);
+//    self.toolView.transform =
+    CGFloat keyDuration = [noti.userInfo [UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration: keyDuration animations:^{
+        self.tableView.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - SCREENHEIGHT);//此处存在问题，table只是向上平移了，而且Title并没有覆盖table
+//        [self.tableView setFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.height -frame.origin.y+SCREENHEIGHT)];
+        self.toolView.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - SCREENHEIGHT);
+
+
+        
+        
+    }];
+    
+    
+    
+//    
+//    
+//    self.tableView.transform = CGAffineTransformMakeTranslation(0, -216);
+//    self.toolView.transform = CGAffineTransformMakeTranslation(0, -216);
+    
+    
+//    self.tableView.bounds = CGRectMake(self.tableView.bounds.origin.x, self.tableView.bounds.origin.y, self.tableView.bounds.size.width, self.tableView.bounds.size.height-216);
+//    self.toolView.bounds = CGRectMake(self.toolView.bounds.origin.x, self.toolView.bounds.origin.y-216, self.toolView.bounds.size);
+    
 }
 
+//开始拖拽视图
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+     contentOffSetY = scrollView.contentOffset.y;
+}
+
+// 滚动时调用此方法(手指离开屏幕后)
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    newContentOffSetY =scrollView.contentOffset.y;
+    
+     if (newContentOffSetY > oldContentOffSetY && oldContentOffSetY > contentOffSetY) {//向上滚动
+         
+     } else if (newContentOffSetY < oldContentOffSetY && oldContentOffSetY < contentOffSetY) { // 向下滚动
+         [self.view endEditing:YES];
+     } else {//拖拽
+         NSLog(@"Dragging");
+     }
+    
+    if (scrollView.dragging) {
+        if ((scrollView.contentOffset.y - contentOffSetY) > 5.0f) {  // 向上拖拽
+            
+        } else if ((contentOffSetY - scrollView.contentOffset.y) > 5.0f) {   // 向下拖拽
+         
+            [self.view endEditing:YES];
+
+        }
+    }
+}
+
+// 完成拖拽(滚动停止时调用此方法，手指离开屏幕前)
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+
+{
+    
+    // NSLog(@"scrollViewDidEndDragging");
+    
+    oldContentOffSetY = scrollView.contentOffset.y;
+    
+}
 
 -(void)logDic:(NSDictionary *)dic
 {
