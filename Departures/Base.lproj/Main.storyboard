@@ -570,7 +570,10 @@
                                             <constraint firstAttribute="height" constant="30" id="Ik0-0b-zM6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="JtC-QF-PWH" id="jOq-gR-DTr"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -650,6 +653,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="kkh-oG-3UW" id="eQJ-Hd-Mtb"/>
+                        <outlet property="inputView" destination="WTx-L1-HRu" id="fHM-8r-koN"/>
                         <outlet property="tableView" destination="HFg-nF-Kwr" id="itb-yY-G5d"/>
                         <outlet property="titleLabel" destination="52E-62-ksl" id="ML2-QE-1JR"/>
                         <outlet property="titleView" destination="XZz-xa-wjI" id="fVs-0N-YBP"/>
@@ -658,7 +662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvY-tI-0AK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2311" y="535"/>
+            <point key="canvasLocation" x="2396" y="382"/>
         </scene>
         <!--Message-->
         <scene sceneID="Bx8-dU-91b">

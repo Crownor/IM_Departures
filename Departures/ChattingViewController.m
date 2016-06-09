@@ -7,7 +7,7 @@
 //
 #import "MessageCell.h"
 #import "ChattingViewController.h"
-@interface ChattingViewController()<UITableViewDataSource,UITableViewDelegate>
+@interface ChattingViewController()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property(nonatomic , strong)NSMutableArray *messages;
 - (void)logDic:(NSDictionary *)dic;
@@ -41,11 +41,51 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
+    
+    
+    //设置inputField的左边距，并令其一直显示
+    self.inputView.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 8, 0)];
+    self.inputView.leftViewMode = UITextFieldViewModeAlways;
+    
+    
+    
+    
 }
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    NSLog(@"%@",textField.text);
+    //1.添加数据模型
+    MessageMoudel *messageMoudle = [[MessageMoudel alloc]init];
+    
+    messageMoudle.time = @"16:88";
+    messageMoudle.text = textField.text;
+    messageMoudle.type = OthersMessage;
+    
+    //设置内容frame
+    MessageFrameMoudel *messageFrameMoudle = [[MessageFrameMoudel alloc]init];
+    //将messageMoudle复制给messageFrameMoudle的message
+    messageFrameMoudle.message = messageMoudle;
+    [self.messages addObject:messageFrameMoudle];
+    
+    //2.刷新表格
+    [self.tableView reloadData];
+    //迷之要求直接return Yes
+    return YES;
+}
+
+
+
+
 //
 
 -(void)keyboardDidChangeFrame:(NSNotification *)noti{
     NSLog(@"----------%@",noti.userInfo);
+    
+    self.view.window.backgroundColor = [UIColor whiteColor];//避免在弹出键盘的时候出现连接不上然后有一段是黑色的尴尬情况
+    
+    
+    
 //    self.tableView.bounds.size.height -= 216;
 //    
     CGRect frame = [ noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue ];
@@ -57,12 +97,15 @@
         self.tableView.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - SCREENHEIGHT);//此处存在问题，table只是向上平移了，而且Title并没有覆盖table
 //        [self.tableView setFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.height -frame.origin.y+SCREENHEIGHT)];
         self.toolView.transform = CGAffineTransformMakeTranslation(0, frame.origin.y - SCREENHEIGHT);
-
-
+        
+        [self.view bringSubviewToFront:_titleView];
+        
         
         
     }];
     
+    
+//    [NSNumber numberWithInt:<#(int)#>]
     
     
 //    

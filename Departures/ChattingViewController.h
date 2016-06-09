@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UIView *toolView;
 
+@property (weak, nonatomic) IBOutlet UITextField *inputView;//感觉这个好神奇
 @property CGFloat contentOffSetY;
 
 @property CGFloat oldContentOffSetY;
