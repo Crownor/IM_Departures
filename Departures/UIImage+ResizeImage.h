@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (ResizeImage)
-+(UIImage *) resizeImage:(NSString *)name; 
++(UIImage *) resizeWithImageName:(NSString *)name;
 @end

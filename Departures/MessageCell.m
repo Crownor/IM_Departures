@@ -84,12 +84,13 @@
     [self.textView setTitle:moudel.text forState:UIControlStateNormal];
     //拉伸并设置背景图片
     if ([moudel.type isEqualToNumber:[NSNumber numberWithInt:MineMessage] ]) {
-        [self.textView setBackgroundImage:[self resizeWithImageName:@"chat_send_nor" ] forState:UIControlStateNormal];
+        [self.textView setBackgroundImage:[UIImage resizeWithImageName:@"chat_send_nor" ] forState:UIControlStateNormal];
         [self.textView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }else{
-        [self.textView setBackgroundImage:[self resizeWithImageName:@"chat_recive_nor"] forState:UIControlStateNormal];
+//        [self.textView setBackgroundImage:[self resizeWithImageName:@"chat_recive_nor"] forState:UIControlStateNormal];
+        [self.textView setBackgroundImage:[UIImage resizeWithImageName:@"chat_recive_nor"] forState:UIControlStateNormal];
         [self.textView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
+  
     }
 //    self.backgroundColor = [UIColor grayColor];
     self.backgroundColor=[UIColor clearColor];//关键语句
@@ -98,16 +99,6 @@
 
 }
 
-//拉伸气泡图片
--(UIImage *) resizeWithImageName:(NSString *)name{
-    UIImage *image = [UIImage imageNamed:name];
-    CGFloat width  = image.size.width*0.5f  - 1;
-    CGFloat height = image.size.height*0.5f - 1;
-    UIImage *resizeImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(height, width, height, width)];//For iOS 5.0 and later
-//    [image resizableImageWithCapInsets:<#(UIEdgeInsets)#> resizingMode:<#(UIImageResizingMode)#>] For iOS 6.0 and  later
-//    [image stretchableImageWithLeftCapWidth:<#(NSInteger)#> topCapHeight:<#(NSInteger)#>] For iOS 5.0 and later
-    return resizeImage;
-}
 
 //-(void)awakeFromNib{
 //    //Intilization code

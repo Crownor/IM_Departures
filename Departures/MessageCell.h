@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MessageFrameMoudel.h"
 #import "MessageMoudel.h"
+#import "UIImage+ResizeImage.h"
 @class MessageFrameMoudel;
 @interface MessageCell : UITableViewCell
 //
