@@ -1,5 +1,0 @@
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Canvas" "${PODS_ROOT}/Headers/Public/FLKAutoLayout" "${PODS_ROOT}/Headers/Public/ORStackView" "${PODS_ROOT}/Headers/Public/SOCKit" "${PODS_ROOT}/Headers/Public/TPKeyboardAvoiding"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/Canvas" -isystem "${PODS_ROOT}/Headers/Public/FLKAutoLayout" -isystem "${PODS_ROOT}/Headers/Public/ORStackView" -isystem "${PODS_ROOT}/Headers/Public/SOCKit" -isystem "${PODS_ROOT}/Headers/Public/TPKeyboardAvoiding"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"AFNetworking" -l"Canvas" -l"FLKAutoLayout" -l"ORStackView" -l"SOCKit" -l"TPKeyboardAvoiding" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration"
-PODS_ROOT = ${SRCROOT}/Pods

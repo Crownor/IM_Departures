@@ -1,6 +1,4 @@
-pod 'AFNetworking'
-pod 'Canvas'
-pod 'FLKAoutoLayout'
-pod 'SOCkit'
-pod ' ORStackView'
-pod'TPKeyboardAvoiding'
+target 'Departures' do
+    pod 'AFNetworking'
+    pod 'TPKeyboardAvoiding'
+end
